@@ -18,6 +18,7 @@ jobs:
       - checkout
       - python/install-packages:
           pkg-manager: pip
+          pip install -r requirements.txt
 #3 Run coding convention software plus tester.
       - run: 
           name: run tests
