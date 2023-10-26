@@ -15,20 +15,21 @@ jobs:
   working_directory: ~/devops
     
   steps:
-     - checkout
-     - run:
+    - checkout
+    - run:
         name: install dependencies
         command: |
           python3 -m venv venv
           . venv/bin/activate
           pip install -r requirements.txt
           
-     - run: 
-          name: run tests
-          command: |
-              . venv/bin/activate
-              flake8 –-exclude=venv* --statistics
-              pytest –-junitxml=test-results/junit.xml
+    - run:
+        name: run tests
+        command: |
+            
+            . venv/bin/activate
+            flake8 –-exclude=venv* --statistics
+            pytest –-junitxml=test-results/junit.xml
     #1 Obtain repo from Github
       
    #2 Create a virtual environment and install dependencies
@@ -39,7 +40,7 @@ jobs:
 #3 Run coding convention software plus tester.
       
  
-      - store_test_results:
+    - store_test_results:
               path: test-results
-      - store_artifacts:
+    - store_artifacts:
               path: test-results
