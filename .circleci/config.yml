@@ -1,10 +1,9 @@
 # Use the latest 2.1 version of CircleCI pipeline process engine.
 # See: https://circleci.com/docs/configuration-reference
 version: 2.1
-orbs:
-  python: circleci/python@2.0.3
-  heroku: circleci/heroku@1.2.6
-
+# orbs:
+#   python: circleci/python@2.0.3
+ 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/configuration-reference/#jobs
 jobs:
@@ -14,13 +13,19 @@ jobs:
     # Add steps to the job
     # See: https://circleci.com/docs/configuration-reference/#steps
     working_directory: ~/devops
+    
     steps:
+    #1 Obtain repo from Github
       - checkout
-      name: install dependencies
-      command: |
-       python3 -m venv venv
-       . venv/bin/activate
-       pip install -r requirements.txt
+   #2 Create a virtual environment and install dependencies
+      -run:
+        name: install dependencies
+        command: |
+          python3 -m venv venv
+          . venv/bin/activate
+          pip install -r requirements.txt
+      
+      
           
 #3 Run coding convention software plus tester.
       - run: 
