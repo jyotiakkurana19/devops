@@ -18,7 +18,7 @@ jobs:
     #1 Obtain repo from Github
       - checkout
    #2 Create a virtual environment and install dependencies
-      -run:
+      - run:
         name: install dependencies
         command: |
           python3 -m venv venv
