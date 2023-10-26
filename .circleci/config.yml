@@ -12,24 +12,24 @@ jobs:
       - image: circleci/python:3.7
     # Add steps to the job
     # See: https://circleci.com/docs/configuration-reference/#steps
-  working_directory: ~/devops
+    working_directory: ~/devops
     
-  steps:
-    - checkout
-    - run:
-        name: install dependencies
-        command: |
-          python3 -m venv venv
-          . venv/bin/activate
-          pip install -r requirements.txt
+    steps:
+        - checkout
+        - run:
+            name: install dependencies
+            command: |
+                python3 -m venv venv
+                . venv/bin/activate
+                pip install -r requirements.txt
           
-    - run:
-        name: run tests
-        command: |
+        - run:
+            name: run tests
+            command: |
             
-            . venv/bin/activate
-            flake8 –-exclude=venv* --statistics
-            pytest –-junitxml=test-results/junit.xml
+                . venv/bin/activate
+                flake8 –-exclude=venv* --statistics
+                pytest –-junitxml=test-results/junit.xml
     #1 Obtain repo from Github
       
    #2 Create a virtual environment and install dependencies
@@ -40,7 +40,7 @@ jobs:
 #3 Run coding convention software plus tester.
       
  
-    - store_test_results:
-              path: test-results
-    - store_artifacts:
-              path: test-results
+        - store_test_results:
+            path: test-results
+        - store_artifacts:
+            path: test-results
