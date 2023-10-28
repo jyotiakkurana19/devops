@@ -43,6 +43,6 @@ jobs:
       
  
         - store_test_results:
-            path: test-results
+            path: test-reports
         - store_artifacts:
-            path: test-results
+            path: test-reports
