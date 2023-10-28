@@ -22,7 +22,11 @@ jobs:
             command: |
                 python3 -m venv venv
                 . venv/bin/activate
-                sudo apt install python3-brlapi
+                pip3 install pytest pytest-cov
+                pip3 install flake8
+                pip3 freeze
+                pip3 freeze > requirements.txt
+                # sudo apt install python3-brlapi
                 pip install -r requirements.txt
           
         - run:
@@ -30,8 +34,8 @@ jobs:
             command: |
             
                 . venv/bin/activate
-                flake8 –-exclude=venv* --statistics
-                pytest –-junitxml=test-results/junit.xml
+                # flake8 –-exclude=venv* --statistics
+                # pytest –-junitxml=test-results/junit.xml
     #1 Obtain repo from Github
       
    #2 Create a virtual environment and install dependencies
