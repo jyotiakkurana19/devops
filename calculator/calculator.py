@@ -13,3 +13,8 @@ def multiply(first_num, second_num):
 def subtract(first_num, second_num):
     print("two lines between the functions")
     return first_num - second_num
+
+
+def divide(first_num, second_num):
+    print("two lines between the functions")
+    return first_num / second_num
